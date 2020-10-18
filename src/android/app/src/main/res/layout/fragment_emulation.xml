@@ -23,13 +23,14 @@
 
     <TextView
         android:id="@+id/show_fps_text"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="false"
         android:linksClickable="false"
         android:longClickable="false"
+        android:layout_gravity="bottom"
         android:shadowColor="@android:color/black"
         android:textColor="@android:color/white"
         android:textSize="12sp" />

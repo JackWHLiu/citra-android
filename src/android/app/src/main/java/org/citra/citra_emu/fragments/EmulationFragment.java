@@ -93,10 +93,10 @@ public final class EmulationFragment extends Fragment implements SurfaceHolder.C
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View contents = inflater.inflate(R.layout.fragment_emulation, container, false);
-
+        //游戏画面预览区域
         SurfaceView surfaceView = contents.findViewById(R.id.surface_emulation);
         surfaceView.getHolder().addCallback(this);
-
+        //模拟游戏按钮的按键层
         mInputOverlay = contents.findViewById(R.id.surface_input_overlay);
         mPerfStats = contents.findViewById(R.id.show_fps_text);
 

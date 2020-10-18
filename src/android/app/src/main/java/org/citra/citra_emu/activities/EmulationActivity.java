@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -52,6 +53,9 @@ import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.RECORD_AUDIO;
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
+/**
+ * 模拟游戏的界面。
+ */
 public final class EmulationActivity extends AppCompatActivity {
     public static final String EXTRA_SELECTED_GAME = "SelectedGame";
     public static final String EXTRA_SELECTED_TITLE = "SelectedTitle";
@@ -183,7 +187,8 @@ public final class EmulationActivity extends AppCompatActivity {
                     .commit();
         }
 
-        setTitle(mSelectedTitle);
+//        setTitle(mSelectedTitle);
+        setTitle("");
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -270,12 +275,12 @@ public final class EmulationActivity extends AppCompatActivity {
     private void enableFullscreenImmersive() {
         // It would be nice to use IMMERSIVE_STICKY, but that doesn't show the toolbar.
         mDecorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
-                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
-                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                        View.SYSTEM_UI_FLAG_FULLSCREEN |
-                        View.SYSTEM_UI_FLAG_IMMERSIVE);
+                View.SYSTEM_UI_FLAG_VISIBLE);
+//                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+//                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
+//                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+//                        View.SYSTEM_UI_FLAG_FULLSCREEN |
+//                        View.SYSTEM_UI_FLAG_IMMERSIVE);
     }
 
     @Override
@@ -366,6 +371,12 @@ public final class EmulationActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * 游戏界面点击菜单。
+     *
+     * @param item
+     * @return
+     */
     @SuppressWarnings("WrongConstant")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -388,7 +399,7 @@ public final class EmulationActivity extends AppCompatActivity {
                 break;
 
             // Toggle the visibility of the Performance stats TextView
-            case MENU_ACTION_SHOW_FPS: {
+            case MENU_ACTION_SHOW_FPS: {    //显示FPS
                 final boolean isEnabled = !EmulationMenuSettings.getShowFps();
                 EmulationMenuSettings.setShowFps(isEnabled);
                 item.setChecked(isEnabled);

@@ -29,8 +29,9 @@
 
     <!-- Inherit from the Base Citra Dialog Theme -->
     <style name="CitraEmulationBase" parent="Theme.AppCompat.DayNight">
-        <item name="colorPrimary">@color/citra_orange</item>
-        <item name="colorPrimaryDark">@color/citra_orange_dark</item>
+        <!-- 修改statusbar color 和 toolbar color为透明 -->
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
         <item name="colorAccent">@color/citra_accent</item>
         <item name="android:windowTranslucentNavigation">true</item>
 
